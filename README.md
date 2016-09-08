@@ -90,7 +90,7 @@ Finally, properties are what give the selected elements of a rule declaration th
     /*
      * This mixin is for setting border radius with cross-browser support.
      * @param {$radius}
-     * /
+     */
     @mixin border-radius($radius) {
       -webkit-border-radius: $radius;
       -moz-border-radius: $radius;
@@ -168,7 +168,7 @@ It's always a better choice of feature detection over browser detection, hence t
 
 Even IEs don't support `@supports` you can still use it for better css solutions in well organised form.
 
-### !important
+### `!important`
 
 Avoid this whenever possible.
 
