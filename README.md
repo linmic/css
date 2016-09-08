@@ -168,7 +168,7 @@ It's always a better choice of feature detection over browser detection, hence t
 
 Even IEs don't support `@supports` you can still use it for better css solutions in well organised form.
 
-### `!important`
+### !important
 
 Avoid this whenever possible.
 
@@ -274,17 +274,17 @@ Use placeholders to do the DRY principle over `@mixin` and `@extend` directives.
 - You should really be careful not to produce duplicated properties, the same rule goes for `@include` and normal `@extend` as well.
 
     ```scss
-    @mixin vertical-center {
+    %vertical-center {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
     }
     
     .vertical-centered-image {
-      @include vertical-centered-image;
       position: absolute;
       left: 0;
       top: 0;
+      @extend %vertical-center;
       // duplicated `position` and `top` here
     }
     ```
