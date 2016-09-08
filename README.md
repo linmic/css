@@ -409,7 +409,7 @@ To achieve this, we need to make sure the loaded font can successfully override 
 
 ### Prevent `:global` in most cases
 
-The whole idea of CSS Module is to prevent global scope and enforced explicit dependencies. You should only use it on third party library's stylesheet and some legacy-handling styles.
+The whole idea of CSS Module is to prevent global scope and enforce explicit dependencies. You should only use it on third party library's stylesheet and some legacy-handling styles.
 
 ### LocalIndentName
 
