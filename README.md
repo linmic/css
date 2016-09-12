@@ -2,6 +2,37 @@
 
 *Heavily inspired / extended by [Airbnb CSS / Sass Styleguide](https://github.com/airbnb/css)*
 
+<!-- toc -->
+
+- [Terminology](#terminology)
+  * [Rule declaration](#rule-declaration)
+  * [Selectors](#selectors)
+  * [Properties](#properties)
+- [CSS](#css)
+  * [Formatting](#formatting)
+  * [Comments](#comments)
+  * [Shorthand properties](#shorthand-properties)
+  * [ID selectors](#id-selectors)
+  * [JavaScript hooks](#javascript-hooks)
+  * [Border and Outline](#border-and-outline)
+  * [@supports](#supports)
+  * [!important](#important)
+- [Sass](#sass)
+  * [Syntax](#syntax)
+  * [Prevent magic numbers/colors](#prevent-magic-numberscolors)
+  * [Ordering of property declarations](#ordering-of-property-declarations)
+  * [Variables](#variables)
+  * [Placeholders](#placeholders)
+  * [Mixins](#mixins)
+  * [Extend directive](#extend-directive)
+  * [Nested selectors](#nested-selectors)
+- [WebFont Loader](#webfont-loader)
+- [CSS Module](#css-module)
+  * [Prevent `:global` in most cases](#prevent-global-in-most-cases)
+  * [LocalIndentName](#localindentname)
+
+<!-- tocstop -->
+
 ## Terminology
 
 ### Rule declaration
@@ -104,7 +135,9 @@ Finally, properties are what give the selected elements of a rule declaration th
   - Uses of z-index
   - Compatibility or browser-specific hacks
 
-### Use shorten syntax whenever possible
+### Shorthand properties
+
+Use shorthand properties whenever possible.
 
 **Bad**
 
@@ -142,7 +175,7 @@ We recommend creating JavaScript-specific classes to bind to, prefixed with `.js
 <button class="btn btn-primary js-request-to-book">Request to Book</button>
 ```
 
-### Border / Outline
+### Border and Outline
 
 Use `0` instead of `none` to specify that a style has no border / outline.
 
@@ -162,7 +195,7 @@ Use `0` instead of `none` to specify that a style has no border / outline.
 }
 ```
 
-### `@supports`
+### @supports
 
 It's always a better choice of feature detection over browser detection, hence the use of `@supports` are encouraged in almost all modern browsers, including Edge.
 
@@ -181,7 +214,21 @@ Avoid this whenever possible.
 
 ### Prevent magic numbers/colors
 
-Use a _vars.scss to declare all variables, try to put every reusable number/color here. More importantly, remember to use them.
+This doens't mean you should declare every measures before using it. However, it's strongly recommended that you should use variables in complex cases.
+
+```scss
+$header-height: 100px;
+$main-padding: 20px;
+$default-color: #333;
+
+.main {
+  color: $default-color;
+  height: calc(100vh - #{$header-height});
+  padding: $main-padding;
+}
+```
+
+Do this, the application stylesheets should be more maintainable and easier to understand.
 
 ### Ordering of property declarations
 
